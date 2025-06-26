@@ -1,4 +1,4 @@
-# Java Project with Gradle and Tomcat
+# Java Project with Gradle and Tomcat [![Build and Push Backend Docker Images to GCP Artifact Registry](https://github.com/DolVladzio/azure_schedule_backend/actions/workflows/docker-image.yml/badge.svg?branch=main)](https://github.com/DolVladzio/azure_schedule_backend/actions/workflows/docker-image.yml)
 
 This repository contains a Java web application built with Gradle and deployed on Apache Tomcat. The project is designed for simplicity and extensibility, following modern development practices.
 
