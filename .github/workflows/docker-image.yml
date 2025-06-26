@@ -38,4 +38,4 @@ jobs:
 
     - name: Push Backend Docker Image
       run: |
-        docker push $FRONTEND_IMAGE:${{ env.TIMESTAMP }}
+        docker push $BACKEND_IMAGE:${{ env.TIMESTAMP }}
