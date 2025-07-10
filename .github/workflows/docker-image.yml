@@ -6,9 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-env:
-  BACKEND_IMAGE: ${{ secrets.GCR_NAME }}/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.REPO_NAME }}/backend
-
 jobs:
   frontend:
     name: Build and Push Backend Docker Image
@@ -32,17 +29,25 @@ jobs:
     - name: Define Timestamp Environment Variable
       run: echo "TIMESTAMP=$(date +'%Y-%m-%d-%H-%M-%S')" >> $GITHUB_ENV
 
+    - name: Set The Frontend Image Name
+      run: |
+        echo "BACKEND_IMAGE=${{ secrets.GCR_NAME }}/${{ secrets.GCP_PROJECT_ID }}/${{ secrets.REPO_NAME }}/backend:${{ env.TIMESTAMP }}" >> $GITHUB_ENV
+
     - name: Build Backend Docker Image
       run: |
-        docker build -t $BACKEND_IMAGE:${{ env.TIMESTAMP }} .
+        docker build -t ${{ env.BACKEND_IMAGE }} .
 
     - name: Push Backend Docker Image
       run: |
-        docker push $BACKEND_IMAGE:${{ env.TIMESTAMP }}
+        docker push ${{ env.BACKEND_IMAGE }}
 
-    - name: Trigger Ansible repo
+    - name: Trigger the Ansible runner
       uses: peter-evans/repository-dispatch@v3
       with:
         token: ${{ secrets.ACCESS_REPO_TOKEN }}
         repository: DolVladzio/schedule-Ansible
-        event-type: deploy
+        event-type: deploy-backend
+        client-payload: |
+          {
+            "backend_image": "${{ env.BACKEND_IMAGE }}"
+          }
