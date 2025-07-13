@@ -57,17 +57,17 @@ jobs:
         name: trivy-report-${{ env.TIMESTAMP }}.json
         path: trivy-report-${{ env.TIMESTAMP }}.json
 
-    # - name: Push Backend Docker Image
-    #   run: |
-    #     docker push ${{ env.BACKEND_IMAGE }}
+    - name: Push Backend Docker Image
+      run: |
+        docker push ${{ env.BACKEND_IMAGE }}
 
-    # - name: Trigger the Ansible runner
-    #   uses: peter-evans/repository-dispatch@v3
-    #   with:
-    #     token: ${{ secrets.ACCESS_REPO_TOKEN }}
-    #     repository: DolVladzio/schedule-Ansible
-    #     event-type: deploy-backend
-    #     client-payload: |
-    #       {
-    #         "backend_image": "${{ env.BACKEND_IMAGE }}"
-    #       }
+    - name: Trigger the Ansible runner
+      uses: peter-evans/repository-dispatch@v3
+      with:
+        token: ${{ secrets.ACCESS_REPO_TOKEN }}
+        repository: DolVladzio/schedule-Ansible
+        event-type: deploy-backend
+        client-payload: |
+          {
+            "backend_image": "${{ env.BACKEND_IMAGE }}"
+          }
