@@ -1,9 +1,8 @@
-name: Build and Push Backend Docker Images to GCP Artifact Registry
+name: "Dev: Build backend docker image and push to a GCR"
 
 on:
   push:
-    branches:
-      - main
+    branches: [ dev ]
   workflow_dispatch:
 
 jobs:
@@ -69,5 +68,6 @@ jobs:
         event-type: deploy-backend
         client-payload: |
           {
-            "backend_image": "${{ env.BACKEND_IMAGE }}"
+            "backend_image": "${{ env.BACKEND_IMAGE }}",
+            "env": "dev"
           }
