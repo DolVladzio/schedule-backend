@@ -1,6 +1,12 @@
-Dev: Build backend docker image and push to a GCR - [![Dev: Build backend docker image and push to a GCR](https://github.com/DolVladzio/schedule_backend/actions/workflows/docker-image_dev.yml/badge.svg?branch=dev)](https://github.com/DolVladzio/schedule_backend/actions/workflows/docker-image_dev.yml)
+# GCP
+Dev: Build backend docker image and push to a GCR - [![Dev-GCP: Build backend docker image and push to a GCR](https://github.com/DolVladzio/schedule-backend/actions/workflows/GCP-docker-image_dev.yml/badge.svg?branch=dev)](https://github.com/DolVladzio/schedule-backend/actions/workflows/GCP-docker-image_dev.yml)
 
-Prod: Build backend docker image and push to a GCR - [![Prod: Build backend docker image and push to a GCR](https://github.com/DolVladzio/schedule_backend/actions/workflows/docker-image_prod.yml/badge.svg?branch=main)](https://github.com/DolVladzio/schedule_backend/actions/workflows/docker-image_prod.yml)
+Prod: Build backend docker image and push to a GCR - [![Prod-GCP: Build backend docker image and push to a GCR](https://github.com/DolVladzio/schedule-backend/actions/workflows/GCP-docker-image_prod.yml/badge.svg?branch=main)](https://github.com/DolVladzio/schedule-backend/actions/workflows/GCP-docker-image_prod.yml)
+
+# AWS
+Dev: Build backend docker image and push to a GitHub CR - [![Dev-AWS: Build backend docker image and push to a GitHub CR](https://github.com/DolVladzio/schedule-backend/actions/workflows/AWS-docker-image_dev.yml/badge.svg?branch=dev)](https://github.com/DolVladzio/schedule-backend/actions/workflows/AWS-docker-image_dev.yml)
+
+Prod: Build backend docker image and push to a GitHub CR - [![Prod-AWS: Build backend docker image and push to a GitHub CR](https://github.com/DolVladzio/schedule-backend/actions/workflows/AWS-docker-image_prod.yml/badge.svg?branch=main)](https://github.com/DolVladzio/schedule-backend/actions/workflows/AWS-docker-image_prod.yml)
 
 This repository contains a Java web application built with Gradle and deployed on Apache Tomcat. The project is designed for simplicity and extensibility, following modern development practices.
 

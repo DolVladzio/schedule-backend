@@ -1,8 +1,8 @@
-name: "Prod: Build backend docker image and push to a GCR"
+name: "Dev: Build backend docker image and push to a GCR"
 
 on:
-  push:
-    branches: [ main ]
+  # push:
+  #   branches: [ dev ]
   workflow_dispatch:
 
 jobs:
@@ -65,9 +65,9 @@ jobs:
       with:
         token: ${{ secrets.ACCESS_REPO_TOKEN }}
         repository: DolVladzio/schedule-Ansible
-        event-type: deploy-backend-prod
+        event-type: deploy-backend-dev
         client-payload: |
           {
             "backend_image": "${{ env.BACKEND_IMAGE }}",
-            "env": "prod"
+            "env": "dev"
           }
